@@ -1,0 +1,146 @@
+\documentclass[8pt,letter]{article}
+ 
+%% \usepackage[fleqn]{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{breqn}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[ruled,vlined,linesnumbered,lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{subcaption}
+%% \usepackage{datetime}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{parskip} %turns off paragraph indent
+\pagestyle{fancy}
+
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\usepackage[small]{titlesec}
+
+\usetikzlibrary{arrows}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\newcommand*{\argminl}{\argmin\limits}
+
+\newcommand{\mathleft}{\@fleqntrue\@mathmargin0pt}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ppartial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\p}{\partial}
+\newcommand{\te}[1]{\text{#1 }}
+\newcommand{\norm}[1]{\|#1\|}
+
+\setcounter{MaxMatrixCols}{20}
+
+% remove excess vertical space for align equations
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+% \newtheorem{mdtheorem}{Theorem}
+% \newenvironment{theorem}
+% {\begin{mdframed}[
+%   backgroundcolor=green!10,
+%   topline=false,
+%   rightline=false,
+%   bottomline=false,
+%   leftline=false
+%   ]\begin{mdtheorem}}
+%     {\end{mdtheorem}\end{mdframed}}
+
+\begin {document}
+
+\lhead{Notes - Tensor Calculus, Bill (Yuan) Liu}
+
+% \begin{align}
+%   \nabla f_{k+1}^T p_k & \geq c_2 \nabla f_k^T p_k\\
+%   \frac{\partial \phi(\alpha_k)}{\partial \alpha_k} & \geq \frac{\partial \phi(0)}{\partial \alpha_k}\\
+%   &c_1,\alpha_k \in (0,1)\\
+%   &0<c_1<c_2<1
+% \end{align}
+
+\begin{multicols*}{2}
+
+  \section{Tensor Basics}
+
+  \subsection{Definitions}
+  TODO
+
+  \subsection{Tensor Manipulations and Operations}
+  TODO
+
+  \vfill\null
+  \pagebreak
+    
+  \section{Tensor Derivatives}
+
+  let $T$ be a contravariant tensor, then:
+
+  $\bar{T}^i = T^r \frac{\partial \bar{x}^i}{\partial x^r}$, where $T=T^i(x(t))$
+
+  Take derivative wrt. $t$:
+
+  $\frac{\partial \bar{T}^i}{\partial t} = \frac{\partial T^r}{\partial t} \frac{\partial \bar{x}^i}{\partial x^r} + T^r \frac{\partial^2 \bar{x}^i}{\partial x^s \partial x^r} \frac{\partial x^s}{\partial t}$ (not a general tensor)
+
+  $\bar{x}^i$ being a linear functions of $x^r \implies \frac{\partial \bar{T}^i}{\partial t} = \frac{\partial T^r}{\partial t} \frac{\partial \bar{x}^i}{\partial x^r}$ (it's a general tensor)
+  
+  Goal: Would like the curvature of a curve to be an intrinsic concept, independent of coordinate systems. Use Christoffel symbols to solve it.
+  
+  \subsection{Christoffel Symbol of the 1st Kind}
+
+  $\Gamma_{ijk} = \frac{1}{2}\left( - \frac{\partial (g_{ij})}{\partial x^k} + \frac{\partial (g_{jk})}{\partial x^i} + \frac{\partial (g_{ki})}{\partial x^j} \right)$
+
+  Let $g_{ijk}=\frac{\partial(g_{ij})}{\partial(x^k)}$
+
+  $\Gamma_{ijk} = \frac{1}{2}( -g_{ijk} + g_{jki} + g_{kij})$
+
+  Cyclic permute and add:
+
+  $\Gamma_{ijk} + \Gamma_{jki} = g_{kij}$
+
+  Driving transformation law for $\Gamma_{ijk}$:\\
+  By using $g_{ij}$ derivative and its cyclic permutatations,\\
+  $\bar{\Gamma}_{ijk} = \frac{1}{2}( -\bar{g}_{ijk} + \bar{g}_{jki} + \bar{g}_{kij})$
+
+  where:
+  
+  $\bar{g}_{ijk} = \frac{\partial}{\partial \bar{x}^k} \left(g_{rs} \frac{\partial x^r}{\partial \bar{x}^i} \frac{\partial x^s}{\partial \bar{x}^j}\right)$ (expand this)
+
+  Rearrange and simplify to:
+
+  $\bar{\Gamma}_{ijk} = \Gamma_{rst} \frac{\partial x^r}{\partial \bar{x}^i} \frac{\partial x^s}{\partial \bar{x}^j} \frac{\partial x^t}{\partial \bar{x}^k} + g_{rs} \frac{\partial^2 x^r}{\partial \bar{x}^i \partial \bar{x}^j} \frac{\partial x^s}{\partial \bar{x}^k}$ (not a general tensor)
+  
+  \subsection{Christoffel Symbol of the 2nd Kind}
+
+  TODO
+
+  \subsection{Covariant Derivative of Covariant Vector}
+
+
+  \subsection{Covariant Derivative of Contravariant Vector}
+  
+  TODO
+
+  \subsection{Absolute Differentiation Along Curve}
+  
+  TODO
+  
+\end{multicols*}
+\end {document}
+
+
