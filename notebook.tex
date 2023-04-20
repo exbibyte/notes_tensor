@@ -79,11 +79,36 @@
   \section{Tensor Basics}
 
   \subsection{Definitions}
-  TODO
 
+  Transformation rules for tensors:
+  
+  Covariant tensor of order 1 $\iff \bar{T}_i = T_r \frac{\partial x^r}{\partial \bar{x}^i}$
+
+  Contravariant tensor of order 1 $\iff \bar{T}^i = T^r \frac{\partial \bar{x}^i}{\partial x^r}$
+
+  Mixed tensor: a combination of the above types.
+
+  $(n,m)$ - tensor: tensor with contravariant order of $n$, covariant order of $m$
+  
   \subsection{Tensor Manipulations and Operations}
-  TODO
 
+  let $ST$ be the inner product of tensors $S$ and $T$ where 2 indices of opposite types are equated and take the sum of the products for the equated index. Resulting tensor order decreases by 2.
+
+  let $[ST]$ be the outer product of tensors $S$ and $T$ where product is taken over all permutation of indices. Resulting tensor order adds up from the input tensors.
+
+  Tensor order of 0 is an invariant.
+
+  Self tensor contraction: set 2 indices of opposite types for the current tensor and perform sum over the equated index. Resulting tensor order decreases by 2.
+
+  equality of composite operations:\\
+  contract $\circ$ outer\_product $\iff$ inner\_product
+
+  \vfill\null
+  \pagebreak
+  
+  \section{Metric Tensor}
+  TODO
+  
   \vfill\null
   \pagebreak
     
