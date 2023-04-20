@@ -127,14 +127,59 @@
   
   \subsection{Christoffel Symbol of the 2nd Kind}
 
-  TODO
+  $\Gamma_{ij}^k g^{kr} \Gamma_{ijk}$ (raising an index of Christoffel Symbol of the 1st kind.
 
+  Transformation rule for $\Gamma_{ij}^k$; use $\Gamma_{ijk}$ in derivation:
+  
+  $\bar{\Gamma}_{ij}^k = \bar{g}^{kr} \bar{\Gamma}_{ijr}$
+
+  $\bar{\Gamma}_{ij}^k = \left(g^{sr} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial \bar{x}^r}{\partial x^t}\right) \bar{\Gamma}_{ijr}$
+
+  $\bar{\Gamma}_{ij}^k = \left(g^{sr} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial \bar{x}^r}{\partial x^t}\right) \left(\Gamma_{uvw} \frac{\partial x^u}{\parital \bar{x}^i} \frac{\partial x^v}{\parital \bar{x}^j} \frac{\partial x^w}{\partial \bar{x}^r} + g_{uv} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j} \frac{\partial x^v}{\partial \bar{x}^r} \right)$
+
+  $\bar{\Gamma}_{ij}^k = \Gamma_{uv}^w \frac{\partial \bar{x}^k}{\partial x^w} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j} + \frac{\partial \bar{x}^k}{\partial x^w} \frac{\partial^2 x^w}{\partial \bar{x}^i \partial \bar{x}^j}$ (not a general tensor)
+
+  linear coordinate transform $\implies \Gamma_{ij}^k$ becomes a tensor
+
+  $\frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j} = \bar{\Gamma}_{ij}^k \frac{\partial x^w}{\partial \bar{x}^k} - \Gamma_{uv}^w \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j}$
+  
   \subsection{Covariant Derivative of Covariant Vector}
 
+  let $T$ be a covariant tensor, then:
+
+  $\bar{T}_i = T_r \frac{x^r}{\partial \bar{x}^i}$
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} = \frac{\partial T_r}{\partial \bar{x}^k} \frac{\partial x^r}{\partial \bar{x}^i} + T_r \frac{\partial^2 x^r}{\partial \bar{x}^k \partial \bar{x}^i}$
+
+  use $\frac{\partial^2 x^r}{\partial \bar{x}^i \partial \bar{x}^j}$ from earlier:
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} = \frac{\partial T_r}{\partial x^s} \frac{\partial x^s}{\partial \bar{x}^k} \frac{\partial x^r}{\partial \bar{x}^i} + T_r \left( \bar{\Gamma}_{ik}^s \frac{\partial x^r}{\partial \bar{x}^s} - \Gamma_{st}^r \frac{\partial x^s}{\partial \bar{x}^i} \frac{\partial x^t}{\partial \bar{x}^k} \right)$
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} = \frac{\partial T_r}{\partial x^s} \frac{\partial x^s}{\partial \bar{x}^k} \frac{x^r}{\partial \bar{x}^i} + \bar{\Gamma}_{ik}^s \bar{T}_s - \Gamma_{st}^r T_r \frac{\partial x^s}{\partial \bar{x}^i} \frac{\partial x^t}{\partial \bar{x}^k}$
+
+  rename indices:
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} = \frac{\partial T_r}{\partial x^s} \frac{\partial x^s}{\partial \bar{x}^k} \frac{x^r}{\partial \bar{x}^i} + \bar{\Gamma}_{ik}^t \bar{T}_t - \Gamma_{rs}^t T_t \frac{\partial x^r}{\partial \bar{x}^i} \frac{\partial x^s}{\partial \bar{x}^k}$
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} = \bar{\Gamma}_{ik}^t \bar{T}_t + \frac{\partial x^s}{\partial \bar{x}^k} \frac{\partial x^r}{\partial \bar{x}^i} \left( \frac{\partial T_r}{x^s} - \Gamma_{rs}^t T_t \right)$
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} - \bar{\Gamma}_{ik}^t \bar{T}_t = \frac{\partial x^s}{\partial \bar{x}^k} \frac{\partial x^r}{\partial \bar{x}^i} \left( \frac{\partial T_r}{x^s} - \Gamma_{rs}^t T_t \right)$
+
+  $\frac{\bar{T}_i}{\partial \bar{x}^k} - \bar{\Gamma}_{ik}^t \bar{T}_t$ is a (0,2)-tensor
+
+  components of covariant derivative wrt. $x^k$ of a covariant vector $T=(T_i)$:
+
+  $T_{,k} = (T_{i,k}) = \frac{\partial T_i}{\partial x^k} - \Gamma_{ik}^t T_t \right)$
+
+  $g_{ij}$ are constants $\implies$ covariant derivatives and partial derivatives coincide
 
   \subsection{Covariant Derivative of Contravariant Vector}
   
-  TODO
+  Similar to previous section, covariant derivative wrt. $x^k$ of a contravariant vector $T=(T^i)$ is:
+
+  $T_{,k} = (T_{,k}^i) = \frac{\partial T^i}{\partial x^k} + \Gamma_{tk}^i T^t$
+
+  Covariant derivative of any rensor is a tensor that has 1 additional covariant order more than the original tensor.
 
   \subsection{Absolute Differentiation Along Curve}
   
