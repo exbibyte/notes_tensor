@@ -89,6 +89,30 @@
   Mixed tensor: a combination of the above types.
 
   $(n,m)$ - tensor: tensor with contravariant order of $n$, covariant order of $m$
+
+  \subsection{transform rules for differential form}
+
+  $\partial f = \frac{\partial f}{\partial c^i} \partial c^i = \frac{\partial f}{\partial p^i} \partial p^i$
+
+  basis covector transformation:
+
+  $\partial p^i = \frac{\partial p^i}{\partial c^j} \partial c^j$, coefficients: $\frac{\partial p^i}{\partial c^j}$ $\iff$ contravariant
+
+  covector components transformation:
+
+  $\frac{\partial f}{\partial p^j} = \frac{\partial c^i}{\partial p^j} \frac{\partial f}{\partial c^i}$, coefficients: $\frac{\partial c^i}{\partial p^j}$ $\iff$ covariant
+
+  \subsection{transform rules for vector}
+
+  $\frac{\partial}{\partial \lambda} = \frac{\partial c^i}{\partial \lambda} \frac{\partial}{\partial c^i} = \frac{\partial p^i}{\partial \lambda} \frac{\partial}{\partial p^i}$
+  
+  basis vector transformation:
+
+  $\frac{\partial}{\partial p^j} = \frac{\partial c^i}{\partial p^j} \frac{\partial}{\partial c^i}$, coefficients: $\frac{\partial c^i}{\partial p^j}$ $\iff$ covariant
+
+  vector components transformation:
+
+  $\frac{\partial p^i}{\partial \lambda} = \frac{\partial p^i}{\partial c^j} \frac{\partial c^j}{\partial \lambda}$, coefficients: $\frac{\partial p^i}{\partial c^j}$ $\iff$ contravariant
   
   \subsection{Tensor Manipulations and Operations}
 
@@ -107,7 +131,28 @@
   \pagebreak
   
   \section{Metric Tensor}
-  TODO
+
+  $g_{ij} = (\frac{\partial}{\partial x_i} \cdot \frac{\partial}{\partial x_j})$, dot product of basis vectors
+
+  $\tilde{g}_{ij} = \frac{\partial}{\partial \tilde{c}^i} \cdot \frac{\partial}{\partial \tilde{c}^j}$
+  
+  $\tilde{g}_{ij} = \frac{\partial}{\partial c^i} \frac{\partial c^i}{\partial \tilde{c}^i} \cdot \frac{\partial}{\partial c^j} \frac{\partial c^j}{\partial \tilde{c}^j}$
+
+  $\tilde{g}_{ij} = \frac{\partial}{\partial c^i} \cdot \frac{\partial}{\partial c^j} \frac{\partial c^i}{\partial \tilde{c}^i}\frac{\partial c^j}{\partial \tilde{c}^j}$
+  
+  $\tilde{g}_{ij} = g_{ij} \frac{\partial c^i}{\partial \tilde{c}^i}\frac{\partial c^j}{\partial \tilde{c}^j}$ $\iff$ (0,2)-tensor
+
+  Arc length using metric tensor:
+
+  $\|\frac{\partial \vec{R}}{\partial \lambda} \|^2 = \frac{\partial \vec{R}}{\partial u^i} \frac{\partial u^i}{\partial \lambda} \cdot \frac{\partial \vec{R}}{\partial u^j} \frac{\partial u^j}{\partial \lambda}$
+  
+  $\|\frac{\partial \vec{R}}{\partial \lambda} \|^2 = \frac{\partial u^i}{\partial \lambda} \frac{\partial u^j}{\partial \lambda} (\frac{\partial \vec{R}}{\partial u^i} \cdot \frac{\partial \vec{R}}{\partial u^j})$
+
+  $\|\frac{\partial \vec{R}}{\partial \lambda} \|^2 = \frac{\partial u^i}{\partial \lambda} \frac{\partial u^j}{\partial \lambda} g_{ij}$
+
+  Generalized inner product:
+
+  convert tensor to opposite type using $g$ before doing an inner product
   
   \vfill\null
   \pagebreak
@@ -156,7 +201,7 @@
   
   \subsection{Christoffel Symbol of the 2nd Kind}
 
-  $\Gamma_{ij}^k g^{kr} \Gamma_{ijk}$ (raising an index of Christoffel Symbol of the 1st kind.
+  $\Gamma_{ij}^k = g^{kr} \Gamma_{ijr}$ (raising an index of Christoffel Symbol of the 1st kind.
 
   Similar properties as $\Gamma_{ijk}$: symmetry in lower indices, $\Gamma_{ij}^k$ vanish if $g_{ij}$ are all constant.
   
@@ -166,11 +211,11 @@
 
   $\bar{\Gamma}_{ij}^k = \left(g^{sr} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial \bar{x}^r}{\partial x^t}\right) \bar{\Gamma}_{ijr}$
 
-  $\bar{\Gamma}_{ij}^k = \left(g^{sr} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial \bar{x}^r}{\partial x^t}\right) \left(\Gamma_{uvw} \frac{\partial x^u}{\parital \bar{x}^i} \frac{\partial x^v}{\parital \bar{x}^j} \frac{\partial x^w}{\partial \bar{x}^r} + g_{uv} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j} \frac{\partial x^v}{\partial \bar{x}^r} \right)$
+  $\bar{\Gamma}_{ij}^k = \left(g^{sr} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial \bar{x}^r}{\partial x^t}\right) \left(\Gamma_{uvw} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j} \frac{\partial x^w}{\partial \bar{x}^r} + g_{uv} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j} \frac{\partial x^v}{\partial \bar{x}^r} \right)$
 
   $\bar{\Gamma}_{ij}^k = g^{st} \Gamma_{uvt} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j} + g^{st} g_{ut} \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j}$
 
-  $\bar{\Gamma}_{ij}^k = \Gamma_{uv}^s \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\parial \bar{x}^j} + \frac{\partial \bar{x}^k}{\partial x^u} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j}$
+  $\bar{\Gamma}_{ij}^k = \Gamma_{uv}^s \frac{\partial \bar{x}^k}{\partial x^s} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j} + \frac{\partial \bar{x}^k}{\partial x^u} \frac{\partial^2 x^u}{\partial \bar{x}^i \partial \bar{x}^j}$
 
   $\bar{\Gamma}_{ij}^k = \Gamma_{uv}^w \frac{\partial \bar{x}^k}{\partial x^w} \frac{\partial x^u}{\partial \bar{x}^i} \frac{\partial x^v}{\partial \bar{x}^j} + \frac{\partial \bar{x}^k}{\partial x^w} \frac{\partial^2 x^w}{\partial \bar{x}^i \partial \bar{x}^j}$ (not a general tensor)
 
@@ -204,7 +249,7 @@
 
   components of covariant derivative wrt. $x^k$ of a covariant vector $T=(T_i)$:
 
-  $T_{,k} = (T_{i,k}) = \frac{\partial T_i}{\partial x^k} - \Gamma_{ik}^t T_t \right)$
+  $T_{,k} = (T_{i,k}) = \frac{\partial T_i}{\partial x^k} - \Gamma_{ik}^t T_t$
 
   $g_{ij}$ are constants $\implies$ covariant derivatives and partial derivatives coincide
 
@@ -221,7 +266,13 @@
   ref: Schaum Chapter 6
 
   \subsection{Absolute Differentiation Along Curve}
-  
+  TODO
+
+  \vfill\null
+  \pagebreak
+    
+  \section{Geodesic}
+
   TODO
   
 \end{multicols*}
